@@ -21,11 +21,11 @@
             android:name=".Login"
             android:label="@string/title_activity_login" />
         <activity android:name=".EmptyActivity" />
-
         <activity
             android:name=".Register"
             android:label="@string/title_activity_register"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Offices"></activity>
     </application>
 
 </manifest>

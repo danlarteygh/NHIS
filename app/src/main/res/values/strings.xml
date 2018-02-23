@@ -199,4 +199,8 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="spinner_title">SEX</string>
+
+    <string name="title_activity_offices">Offices</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

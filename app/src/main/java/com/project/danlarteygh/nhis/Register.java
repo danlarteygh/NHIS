@@ -2,6 +2,7 @@ package com.project.danlarteygh.nhis;
 
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -46,7 +47,7 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
         spinner.setOnItemSelectedListener(this);
 
         // Spinner Drop down elements
-        List<String> categories = new ArrayList<String>(0);
+        List<String> categories = new ArrayList<String>();
         categories.add("MALE");
         categories.add("FEMALE");
 
@@ -60,12 +61,44 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
 
+        //OFFICE SPINNER
+        // Spinner element
+        spinner = (Spinner) findViewById(R.id.office);
+
+        // Spinner click listener
+        spinner.setOnItemSelectedListener(this);
+
+        // Spinner Drop down elements
+        categories = new ArrayList<String>(0);
+        categories.add("REGIONAL OFFICE");
+        categories.add("ABLEKUMA");
+        categories.add("ASHIEDU KETEKE");
+        categories.add("AYAWASO");
+        categories.add("DANGBE EAST");
+        categories.add("DANGBE WEST");
+        categories.add("GA DISTRICT");
+        categories.add("KPESHIE");
+        categories.add("OKAIKOI");
+        categories.add("OSU KLOTTEY");
+        categories.add("TEMA");
+
+
+        // Creating adapter for spinner
+        dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        spinner.setAdapter(dataAdapter);
+
+
         editDate = (EditText) findViewById(R.id.editText_dob);
 
 // init - set date to current date
-        long currentdate = System.currentTimeMillis();
+       /* long currentdate = System.currentTimeMillis();
         String dateString = sdf.format(currentdate);
-        editDate.setText(dateString);
+        editDate.setText(dateString); */
 
 // set calendar date and update editDate
         date = new DatePickerDialog.OnDateSetListener() {
@@ -117,5 +150,8 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
     }
 
 
-
+    public void view_offices(View view) {
+        Intent intent = new Intent(this, Offices.class);
+        startActivity(intent);
+    }
 }

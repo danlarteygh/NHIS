@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="20dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.project.danlarteygh.nhis.Register"
     tools:showIn="@layout/activity_register">
@@ -67,9 +67,10 @@
         <Spinner
             android:id="@+id/sex"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginBottom="20dp"
-            android:prompt="@string/spinner_title" />
+            android:prompt="@string/spinner_title"
+            style="@style/Widget.AppCompat.Spinner.Underlined"/>
 
         <TextView
             android:id="@+id/textView5"
@@ -80,11 +81,42 @@
         <EditText
             android:id="@+id/editText_dob"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginBottom="20dp"
-            android:inputType="date"
             android:ems="10"
-            android:focusable="false" />
+            android:focusable="false"
+            android:inputType="date" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CHOOSE YOUR PREFERRED OFFICE FOR COLLECTION" />
+
+        <Spinner
+            android:id="@+id/office"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:prompt="@string/spinner_title"
+            style="@style/Widget.AppCompat.Spinner.Underlined"/>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="   View All Offices in Greater Accra Region"
+            android:clickable="true"
+            android:onClick="view_offices"
+            android:textColor="#2A5DB0" />
+
+
+
+        <!--  <TextView
+              android:id="@+id/textView7"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="VIEW ALL OFFICES IN GREATER ACCRA REGION"
+              android:textColor="#2A5DB0" /> -->
 
 
     </LinearLayout>
