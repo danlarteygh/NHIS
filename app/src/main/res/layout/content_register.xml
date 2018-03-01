@@ -110,6 +110,15 @@
             android:textColor="#2A5DB0" />
 
 
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:text="make payment"
+            android:textColor="@android:color/background_light"
+            android:onClick="openPayment"/>
+
 
         <!--  <TextView
               android:id="@+id/textView7"
@@ -120,4 +129,5 @@
 
 
     </LinearLayout>
+
 </android.support.v4.widget.NestedScrollView>

@@ -154,4 +154,8 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
         Intent intent = new Intent(this, Offices.class);
         startActivity(intent);
     }
+    public void openPayment(View view) {
+        Intent intent = new Intent(this, Payment.class);
+        startActivity(intent);
+    }
 }
