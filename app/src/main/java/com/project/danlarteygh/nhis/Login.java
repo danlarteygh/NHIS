@@ -20,6 +20,10 @@ public class Login extends AppCompatActivity {
         Intent intent = new Intent(this, Register.class);
         startActivity(intent);
     }
+    public void openAbout(View view) {
+        Intent intent = new Intent(this, About.class);
+        startActivity(intent);
+    }
    /* public void openPayment(View view) {
         Intent intent = new Intent(this, Payment.class);
         startActivity(intent);
