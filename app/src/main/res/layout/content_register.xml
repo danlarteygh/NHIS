@@ -23,7 +23,7 @@
             android:text=" FIRST NAME" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/e_fName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -37,7 +37,7 @@
             android:text=" SURNMAME" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/e_surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -51,7 +51,7 @@
             android:text=" OTHER NAME(S)" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/e_otherName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -65,12 +65,12 @@
             android:text="  SEX" />
 
         <Spinner
-            android:id="@+id/sex"
+            android:id="@+id/s_sex"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="20dp"
-            android:prompt="@string/spinner_title"
-            style="@style/Widget.AppCompat.Spinner.Underlined"/>
+            android:prompt="@string/spinner_title" />
 
         <TextView
             android:id="@+id/textView5"
@@ -88,17 +88,32 @@
             android:inputType="date" />
 
         <TextView
+            android:id="@+id/textViewTelNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" TELEPHONE NUMBER" />
+
+        <EditText
+            android:id="@+id/e_telNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="phone" />
+
+        <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CHOOSE YOUR PREFERRED OFFICE FOR COLLECTION" />
 
+
         <Spinner
-            android:id="@+id/office"
+            android:id="@+id/s_office"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:prompt="@string/spinner_title"
-            style="@style/Widget.AppCompat.Spinner.Underlined"/>
+            />
 
         <TextView
             android:id="@+id/textView8"

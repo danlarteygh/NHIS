@@ -13,9 +13,9 @@ public class About extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         //Webview
-        WebView mywewbview = (WebView) findViewById(R.id.webview);
+        WebView mywewbview = findViewById(R.id.webview);
         mywewbview.loadUrl("http://www.nhis.gov.gh/about.aspx");
-        WebView myWebView = (WebView) findViewById(R.id.webview);
+        WebView myWebView = findViewById(R.id.webview);
         WebSettings webSettings = myWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
     }

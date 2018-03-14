@@ -1,6 +1,7 @@
 package com.project.danlarteygh.nhis;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
@@ -18,30 +21,46 @@ import android.widget.ArrayAdapter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class Register extends AppCompatActivity implements OnItemSelectedListener {
     Context context = this;
-    EditText editDate;
+
+    private EditText editDate, e_fName, e_surname, e_otherName, editText_dob, e_telNo;
+    Spinner s_sex, s_office;
     Calendar myCalendar = Calendar.getInstance();
     String dateFormat = "dd.MM.yyyy";
     DatePickerDialog.OnDateSetListener date;
     SimpleDateFormat sdf = new SimpleDateFormat(dateFormat, Locale.ENGLISH);
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Spinner element
-        Spinner spinner = (Spinner) findViewById(R.id.sex);
+        Spinner spinner = findViewById(R.id.s_sex);
 
         // Spinner click listener
         spinner.setOnItemSelectedListener(this);
@@ -63,7 +82,7 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
 
         //OFFICE SPINNER
         // Spinner element
-        spinner = (Spinner) findViewById(R.id.office);
+        spinner = findViewById(R.id.s_office);
 
         // Spinner click listener
         spinner.setOnItemSelectedListener(this);
@@ -93,7 +112,7 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
         spinner.setAdapter(dataAdapter);
 
 
-        editDate = (EditText) findViewById(R.id.editText_dob);
+        editDate = findViewById(R.id.editText_dob);
 
 // init - set date to current date
        /* long currentdate = System.currentTimeMillis();
@@ -127,14 +146,84 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
             }
         });
 
+        s_sex = findViewById(R.id.s_sex);
+        e_fName = findViewById(R.id.e_fName);
+        e_surname = findViewById(R.id.e_surname);
+        e_otherName = findViewById(R.id.e_otherName);
+        editText_dob = findViewById(R.id.editText_dob);
+        s_office = findViewById(R.id.s_office);
+        e_telNo= findViewById(R.id.e_telNo);
 
-
-
-
+        progressDialog = new ProgressDialog(this);
 
 
 
     }
+
+
+    private void registerSub() {
+        final String fName = e_fName.getText().toString().trim();
+        final String surname = e_surname.getText().toString().trim();
+        final String otherName = e_otherName.getText().toString().trim();
+        // final String sex= s_sex.getText().toString().trim();
+//   final String password = password.getText().toString().trim();
+        final String password = editText_dob.getText().toString().trim();
+        final String telNo = e_telNo.getText().toString();
+        //   final String office = s_office.getText().toString().trim();
+
+        progressDialog.setMessage("Registering user...");
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                Constants.URL_REGISTER,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        progressDialog.dismiss();
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+
+                            Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(Register.this, Payment.class);
+                            startActivity(intent);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+
+                        }}
+
+    },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                      //  Log.e("server response", "onResponse: "+response );
+                        progressDialog.hide();
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }){
+@Override
+        protected Map<String, String> getParams() throws AuthFailureError {
+            Map<String, String> params = new HashMap<>();
+            Log.d("firstname", fName);
+            Log.d("surname", surname);
+            Log.d("othername", otherName);
+            params.put("fName", fName);
+            params.put("surname", surname);
+            params.put("otherName", otherName );
+           /* params.put("otherName",  );
+            params.put("otherName", otherName );
+            params.put("otherName", otherName );*/
+            Log.d("params", params.toString());
+            return params;
+        }
+    };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
+
+
     private void updateDate() {
         editDate.setText(sdf.format(myCalendar.getTime()));
     }
@@ -155,7 +244,14 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
         startActivity(intent);
     }
     public void openPayment(View view) {
-        Intent intent = new Intent(this, Payment.class);
-        startActivity(intent);
+        registerSub();
+
+
     }
+
+
+
+
+
+
 }
