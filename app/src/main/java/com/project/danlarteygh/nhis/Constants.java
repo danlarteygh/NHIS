@@ -5,7 +5,7 @@ package com.project.danlarteygh.nhis;
  */
 
 public class Constants {
-    private static final String ROOT_URL = "http://192.168.43.23/nhis/vs/";
+    private static final String ROOT_URL = "http://192.168.8.101/nhis/vs/";
     public static final String URL_REGISTER = ROOT_URL + "registerSub.php";
 
 }
