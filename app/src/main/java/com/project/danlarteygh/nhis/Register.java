@@ -169,6 +169,8 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
 //   final String password = password.getText().toString().trim();
         final String password = editText_dob.getText().toString().trim();
         final String telNo = e_telNo.getText().toString();
+        final String office = s_office.getSelectedItem().toString();
+        final String sex = s_sex.getSelectedItem().toString();
         //   final String office = s_office.getText().toString().trim();
 
         progressDialog.setMessage("Registering user...");
@@ -211,6 +213,7 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
             params.put("fName", fName);
             params.put("surname", surname);
             params.put("otherName", otherName );
+ //continue here
            /* params.put("otherName",  );
             params.put("otherName", otherName );
             params.put("otherName", otherName );*/
@@ -219,8 +222,7 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
         }
     };
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
 
 
