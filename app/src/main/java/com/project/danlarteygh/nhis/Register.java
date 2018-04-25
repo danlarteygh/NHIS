@@ -165,13 +165,13 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
         final String fName = e_fName.getText().toString().trim();
         final String surname = e_surname.getText().toString().trim();
         final String otherName = e_otherName.getText().toString().trim();
+        final String dob = editDate.getText().toString().trim();
         // final String sex= s_sex.getText().toString().trim();
 //   final String password = password.getText().toString().trim();
         final String password = editText_dob.getText().toString().trim();
         final String telNo = e_telNo.getText().toString();
         final String office = s_office.getSelectedItem().toString();
         final String sex = s_sex.getSelectedItem().toString();
-        //   final String office = s_office.getText().toString().trim();
 
         progressDialog.setMessage("Registering user...");
         progressDialog.show();
@@ -210,9 +210,18 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
             Log.d("firstname", fName);
             Log.d("surname", surname);
             Log.d("othername", otherName);
+            Log.d("dob", dob );
+            Log.d("sex", sex );
+            Log.d("telNo", telNo );
+            Log.d("office", office );
+
+            params.put("sex", sex);
             params.put("fName", fName);
             params.put("surname", surname);
             params.put("otherName", otherName );
+            params.put("dob", dob );
+            params.put("telNo", telNo );
+            params.put("office", office );
  //continue here
            /* params.put("otherName",  );
             params.put("otherName", otherName );
