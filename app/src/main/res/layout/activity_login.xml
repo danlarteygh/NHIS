@@ -22,6 +22,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
+        <!--
 
         <AutoCompleteTextView
             android:id="@+id/email"
@@ -39,10 +40,10 @@
             app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/telNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/prompt_password"
+            android:hint="Telephone Number"
             android:imeActionId="6"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionUnspecified"
@@ -51,28 +52,77 @@
             android:singleLine="true"
             android:textColor="@android:color/background_dark"
             android:textColorHighlight="@android:color/background_dark" />
+            -->
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:lines="2"
+            android:text="Enter your Membership No. and\nTelephone No. to Renew your NHIS  "
+            android:textColor="@android:color/holo_blue_dark"
+            app:layout_constraintBottom_toTopOf="@+id/Register"
+            app:layout_constraintEnd_toEndOf="@+id/Register"
+            app:layout_constraintStart_toStartOf="@+id/Register"
+            tools:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/editTextID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Membership No."
+            android:inputType="phone"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@android:color/background_dark"
+            android:textColorHighlight="@android:color/background_dark" />
+
+        <EditText
+            android:id="@+id/editTextTelNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Telephone No."
+            android:inputType="phone"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="@android:color/background_dark"
+            android:textColorHighlight="@android:color/background_dark" />
 
         <Button
-            android:id="@+id/member_sign_in_button"
+            android:id="@+id/bRenew"
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="150dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginTop="16dp"
             android:background="@android:color/holo_blue_dark"
             android:text="@string/action_sign_in"
             android:textColor="@android:color/background_light"
             android:textStyle="bold" />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:srcCompat="@drawable/nhis_logo" />
+
         <TextView
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="0dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="0dp"
-            android:text=" Not a member yet? Please Register! "
+            android:text=" Not a member yet? Please Register "
+            android:textColor="@android:color/holo_blue_dark"
             app:layout_constraintBottom_toTopOf="@+id/Register"
             app:layout_constraintEnd_toEndOf="@+id/Register"
             app:layout_constraintStart_toStartOf="@+id/Register"
@@ -83,7 +133,7 @@
             style="?android:textAppearanceSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="28dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="0dp"
@@ -108,7 +158,7 @@
             android:layout_marginTop="8dp"
             android:background="@android:color/holo_blue_dark"
             android:onClick="openAbout"
-            android:text="ABOUT"
+            android:text="NHIS Information"
             android:textColor="@android:color/background_light"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView7"

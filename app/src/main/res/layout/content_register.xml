@@ -119,9 +119,11 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="   View All Offices in Greater Accra Region"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
             android:clickable="true"
             android:onClick="view_offices"
+            android:text="   View All Offices in Greater Accra Region"
             android:textColor="#2A5DB0" />
 
 

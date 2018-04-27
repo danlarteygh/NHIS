@@ -129,7 +129,10 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        //        DatePickerDialog.getdatepicker().setMaxDate(myCalendar.getTimeInMillis());
                 updateDate();
+
+
             }
 
         };
