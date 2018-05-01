@@ -1,5 +1,6 @@
 package com.project.danlarteygh.nhis;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.WebSettings;
@@ -26,7 +27,9 @@ public class About extends AppCompatActivity {
         if(myWebView.canGoBack()) {
             myWebView.goBack();
         } else {
-            super.onBackPressed();
+           // super.onBackPressed();
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
         }
     }
 

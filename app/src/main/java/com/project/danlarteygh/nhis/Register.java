@@ -301,7 +301,7 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
                             JSONObject jsonObject = new JSONObject(response);
 
                             Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(Register.this, Payment.class);
+                            Intent intent = new Intent(Register.this, About.class);
                             startActivity(intent);
 
                         } catch (JSONException e) {
