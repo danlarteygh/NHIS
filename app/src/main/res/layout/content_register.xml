@@ -14,7 +14,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <TextView
             android:id="@+id/textView3"
@@ -28,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:capitalize="words"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -42,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:capitalize="words"/>
 
         <TextView
             android:id="@+id/textView"
@@ -56,7 +57,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:capitalize="words"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -64,13 +65,42 @@
             android:layout_height="wrap_content"
             android:text="  SEX" />
 
-        <Spinner
+      <!--  <Spinner
             android:id="@+id/s_sex"
             style="@style/Widget.AppCompat.Spinner.Underlined"
             android:layout_width="fill_parent"
             android:layout_height="40dp"
             android:layout_marginBottom="20dp"
-            android:prompt="@string/spinner_title" />
+            android:prompt="@string/spinner_title" /> -->
+
+        <RadioGroup
+            android:id="@+id/radioGroupSex"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="201dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="MALE" />
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="FEMALE" />
+
+            <!--    <RadioButton
+                android:id="@+id/radioButton3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Radio Button 3"
+                android:textSize="18sp" /> -->
+        </RadioGroup>
 
         <TextView
             android:id="@+id/textView5"
@@ -119,7 +149,7 @@
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             android:layout_marginTop="8dp"
             android:clickable="true"
             android:onClick="view_offices"
@@ -127,14 +157,157 @@
             android:textColor="#2A5DB0" />
 
 
+ <!--       <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="KINDLY TICK THE BOX BELOW IF YOU ARE A \nSSNIT CONTRIBUTOR" />
+
+       <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SSNIT CONTRIBUTOR/PENSIONER" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PREGNANT WOMAN" />
+
+        <TextView
+            android:id="@+id/textViewFullName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" NAME" />
+-->
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="EXEMPT SUBSCRIBERS"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Leave this section blank if you do not belong to any of the categories listed" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="0dp"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical">
+
+
+            <RadioButton
+                android:id="@+id/rbp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="PREGNANT WOMAN" />
+
+            <RadioButton
+                android:id="@+id/rbs"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="SSNIT CONTRIBUTOR/PENSIONER" />
+
+
+            <!--    <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Radio Button 3"
+                    android:textSize="18sp" /> -->
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textViewSSNIT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PLEASE ENTER YOUR SSNIT NUMBER"
+            android:visibility="invisible"/>
+
+        <EditText
+            android:id="@+id/e_ssnitNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="phone"
+            android:visibility="invisible"/>
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" PAYMENT DETAILS"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" SELECT NETWORK" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            style="@style/Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" TELEPHONE NUMBER" />
+
+        <EditText
+            android:id="@+id/e_telNo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="phone" />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" NAME" />
+
+        <EditText
+            android:id="@+id/e_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:capitalize="words"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text=" Amount to be paid: GHc20"
+            android:textColor="@android:color/black" />
+
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/holo_blue_dark"
+            android:onClick="openPayment"
             android:text="make payment"
-            android:textColor="@android:color/background_light"
-            android:onClick="openPayment"/>
+            android:textColor="@android:color/background_light" />
 
 
         <!--  <TextView
@@ -146,5 +319,6 @@
 
 
     </LinearLayout>
+
 
 </android.support.v4.widget.NestedScrollView>

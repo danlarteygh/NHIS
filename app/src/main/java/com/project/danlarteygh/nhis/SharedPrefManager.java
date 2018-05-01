@@ -3,10 +3,6 @@ package com.project.danlarteygh.nhis;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.Volley;
-
 /**
  * Created by danlarteygh on 3/19/18.
  */
@@ -40,12 +36,12 @@ public class SharedPrefManager {
         return mInstance;
     }
 
-    public boolean subLogin(int id, String fName, String surname, String otherName, String sex, String telNo, String office, String dob){
+    public boolean subLogin(String id, String fName, String surname, String otherName, String sex, String telNo, String office, String dob){
 
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        editor.putInt(KEY_USER_ID, id);
+        editor.putString(KEY_USER_ID, id);
         editor.putString(KEY_USER_FNAME,fName);
         editor.putString(KEY_USER_SURNAME, surname);
         editor.putString(KEY_USER_OTHERNAME,otherName);
@@ -82,10 +78,49 @@ public class SharedPrefManager {
         return sharedPreferences.getString(KEY_USER_ID, null);
     }
 
-  /*  public String getUserEmail(){
+    public String gettelNo() {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPreferences.getString(KEY_USER_EMAIL, null);
-*/
+        return sharedPreferences.getString(KEY_USER_TELNO, null);
+    }
+    public String getfullName() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        String fullName = sharedPreferences.getString(KEY_USER_SURNAME, null)+" "+sharedPreferences.getString(KEY_USER_FNAME, null)+" "+sharedPreferences.getString(KEY_USER_OTHERNAME, null);
+        return fullName;
+    }
+
+    public String getfName() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_FNAME, null);
+    }
+
+    public String getsurname() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_SURNAME, null);
+    }
+
+    public String getotherName() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_OTHERNAME, null);
+    }
+    public String getoffice() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_OFFICE, null);
+    }
+    public String getdob() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_DOB, null);
+    }
+    public String getsex() {
+        SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_USER_SEX, null);
+    }
+
+
+
+
+
+
+
 
 
 
