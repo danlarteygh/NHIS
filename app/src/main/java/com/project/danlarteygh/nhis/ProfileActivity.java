@@ -105,14 +105,7 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton rb = (RadioButton) group.findViewById(checkedId);
                 if (null != rb && checkedId > -1) {
-                   /* if (rb.getText()==rb.getText())
-                    {*/
-                    //  RadioButton rbp = (RadioButton) findViewById(R.id.rbp);
-
-
                      if (rbp.isChecked()){
-                         // tv21.setVisibility(View.INVISIBLE);
-
                     }
                     tv22.setVisibility(View.INVISIBLE);
                     tv23.setVisibility(View.INVISIBLE);
@@ -124,26 +117,15 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
                     e_name2.setVisibility(View.INVISIBLE);
 
                     //set button's new text programmatically
-                    //setText() method allow us to set a widget's displayed text
+                    //setText() method allows us to set a widget's displayed text
                     btn.setText("SUBMIT");
-                   // scrollvieww.scrollTo(0, (int) btn.getY());
-                    //  focusOnView();
-
-                    //   }
-                    //Toast.makeText(Register.this, rb.getText(), Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
-
-
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-       /* final String sexx = s_sex.getSelectedItem().toString();
-        if (sexx=="MALE"){rbp.setVisibility(View.VISIBLE);}*/
         ((TextView) parent.getChildAt(0)).setTextColor(Color.BLACK);
-
     }
 
     @Override
@@ -151,14 +133,7 @@ public class ProfileActivity extends AppCompatActivity implements AdapterView.On
 
     }
     public void submitRenewal(View view) {
-     /*   progressDialog1.setMessage("Registering user...");
-        progressDialog1.show();*/
         Toast.makeText(ProfileActivity.this, "NHIS Renewed Successfully", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(this, About.class);
         startActivity(intent);}
-
-
-
-
-
 }

@@ -128,9 +128,5 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             subLogin();
 
         }
-   /* public void openPayment(View view) {
-        Intent intent = new Intent(this, Payment.class);
-        startActivity(intent);
-    } */
     }
 }

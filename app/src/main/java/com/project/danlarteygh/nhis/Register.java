@@ -63,10 +63,6 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
     private String pregnantt="";
     String rbSex;
 
-    //RadioButton rbp = (RadioButton) findViewById(R.id.rbp);
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +79,6 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
         final EditText ssnitNo= Register.this.findViewById(R.id.e_ssnitNo);
         final EditText telNo2= Register.this.findViewById(R.id.e_telNo2);
         final EditText e_name= Register.this.findViewById(R.id.e_name);
-        //final EditText ssnitNo= Register.this.findViewById(R.id.e_ssnitNo);
         final Button btn = (Button) findViewById(R.id.button2);
         final RadioButton rbs = (RadioButton) findViewById(R.id.rbs);
         final Spinner spinnerNetwork = findViewById(R.id.spinner);
@@ -102,10 +97,6 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
         categories.add("Vodafone Cash");
         categories.add("Tigo Cash");
         categories.add("Airtel Money");
-      /*  final String sexx = s_sex.getSelectedItem().toString();
-        TextView textView4;
-        textView4 = (TextView) findViewById(R.id.textView4);
-       // if (sexx=="MALE"){textView4.setVisibility(View.GONE);}*/
 
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         radioGroupSex = (RadioGroup) findViewById(R.id.radioGroupSex);
@@ -117,20 +108,14 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton rb = (RadioButton) group.findViewById(checkedId);
                 if (null != rb && checkedId > -1) {
-                   /* if (rb.getText()==rb.getText())
-                    {*/
-                      //  RadioButton rbp = (RadioButton) findViewById(R.id.rbp);
-
-                        if (rbs.isChecked())
+                       if (rbs.isChecked())
                         {
                             tv.setVisibility(View.VISIBLE);
                             ssnitNo.setVisibility(View.VISIBLE);
-                       // rbp.setVisibility(View.INVISIBLE);
                             }
                         else if (rbp.isChecked()){
                             tv.setVisibility(View.INVISIBLE);
                             ssnitNo.setVisibility(View.INVISIBLE);
-                           // tv21.setVisibility(View.INVISIBLE);
                             pregnantt="YES";
                         }
                     tv16.setVisibility(View.INVISIBLE);
@@ -145,12 +130,7 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
                     //set button's new text programmatically
                         //setText() method allow us to set a widget's displayed text
                         btn.setText("SUBMIT");
-                  //  focusOnView();
-
-                 //   }
-                    //Toast.makeText(Register.this, rb.getText(), Toast.LENGTH_SHORT).show();
-                }
-
+                  }
             }
         });
         radioGroupSex.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -159,10 +139,8 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
                 RadioButton rbx = (RadioButton) group.findViewById(checkedId);
                 rbSex=rbx.getText().toString();
                 if (null != rbx && checkedId > -1) {
-
                     RadioButton rbMale = (RadioButton) findViewById(R.id.rbMale);
                         RadioButton rbFemale = (RadioButton) findViewById(R.id.rbFemale);
-                        //  RadioButton rbp = (RadioButton) findViewById(R.id.rbp);
 
                         if (rbMale.isChecked())
                         {
@@ -172,13 +150,8 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
                             rbp.setVisibility(View.VISIBLE);
                         }
                 }
-
             }
         });
-
-
-
-
                     // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
 
@@ -223,11 +196,6 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
 
         editDate = findViewById(R.id.editText_dob);
 
-// init - set date to current date
-       /* long currentdate = System.currentTimeMillis();
-        String dateString = sdf.format(currentdate);
-        editDate.setText(dateString); */
-
 // set calendar date and update editDate
         date = new DatePickerDialog.OnDateSetListener() {
 
@@ -238,14 +206,9 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        //        DatePickerDialog.getdatepicker().setMaxDate(myCalendar.getTimeInMillis());
                 updateDate();
-
-
             }
-
         };
-
 // onclick - popup datepicker
         editDate.setOnClickListener(new View.OnClickListener() {
 
@@ -258,7 +221,6 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
             }
         });
 
-      //  s_sex = findViewById(R.id.s_sex);
         e_fName = findViewById(R.id.e_fName);
         e_surname = findViewById(R.id.e_surname);
         e_otherName = findViewById(R.id.e_otherName);
@@ -267,23 +229,16 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
         e_telNo= findViewById(R.id.e_telNo);
         e_ssnitNo= findViewById(R.id.e_ssnitNo);
         progressDialog = new ProgressDialog(this);
-
-
-
     }
-
-
     private void registerSub() {
         final String fName = e_fName.getText().toString().trim();
         final String surname = e_surname.getText().toString().trim();
         final String otherName = e_otherName.getText().toString().trim();
         final String dob = editDate.getText().toString().trim();
         final String sex= rbSex;
-//   final String password = password.getText().toString().trim();
         final String password = editText_dob.getText().toString().trim();
         final String telNo = e_telNo.getText().toString();
         final String office = s_office.getSelectedItem().toString();
-     //   final String sex = s_sex.getSelectedItem().toString();
         final String ssnitNo = e_ssnitNo.getText().toString();
         final String pregnant= pregnantt;
 
@@ -313,7 +268,6 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                      //  Log.e("server response", "onResponse: "+response );
                         progressDialog.hide();
                         Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
                     }
@@ -339,36 +293,24 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
             params.put("telNo", telNo );
             params.put("office", office );
             params.put("ssnitNo", ssnitNo );
-    params.put("pregnant", pregnant );
- //continue here
-           /* params.put("otherName",  );
-            params.put("otherName", otherName );
-            params.put("otherName", otherName );*/
+            params.put("pregnant", pregnant );
+
             Log.d("params", params.toString());
             return params;
         }
     };
-
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
     }
-
 
     private void updateDate() {
         editDate.setText(sdf.format(myCalendar.getTime()));
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-       /* final String sexx = s_sex.getSelectedItem().toString();
-        if (sexx=="MALE"){rbp.setVisibility(View.VISIBLE);}*/
-
-    }
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {}
 
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-
+    public void onNothingSelected(AdapterView<?> parent) {}
 
     public void view_offices(View view) {
         Intent intent = new Intent(this, Offices.class);
@@ -377,12 +319,4 @@ public class Register extends AppCompatActivity implements OnItemSelectedListene
     public void openPayment(View view) {
         registerSub();
     }
-    /*private void focusOnView(){
-        new Handler().post(new Runnable() {
-            @Override
-            public void run() {
-                NestedScrollView.scroll
-            }
-        });
-    }*/
 }

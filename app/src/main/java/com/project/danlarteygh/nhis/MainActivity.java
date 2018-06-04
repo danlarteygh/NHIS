@@ -16,16 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar myToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-
-
-       /* Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
-        */
-    }
-
-  /*  private void setSupportActionBar(Toolbar myToolbar) {
-    }
-*/
+}
     public void openLogin(View view) {
         Intent intent = new Intent(this, Login.class);
         startActivity(intent);

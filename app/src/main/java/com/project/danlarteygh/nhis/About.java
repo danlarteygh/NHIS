@@ -27,7 +27,6 @@ public class About extends AppCompatActivity {
         if(myWebView.canGoBack()) {
             myWebView.goBack();
         } else {
-           // super.onBackPressed();
             Intent intent = new Intent(this, Login.class);
             startActivity(intent);
         }

@@ -23,7 +23,6 @@ public class SharedPrefManager {
     private static final String KEY_USER_OFFICE = "useroffice";
     private static final String KEY_USER_DOB = "userdob";
 
-
     private SharedPrefManager(Context context) {
         mCtx = context;
 
@@ -50,7 +49,6 @@ public class SharedPrefManager {
         editor.putString(KEY_USER_OFFICE,office);
         editor.putString(KEY_USER_DOB,dob);
 
-
         editor.apply();
 
         return true;
@@ -71,7 +69,6 @@ public class SharedPrefManager {
         editor.apply();
         return true;
     }
-
 
     public String getID(){
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
@@ -114,14 +111,4 @@ public class SharedPrefManager {
         SharedPreferences sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_USER_SEX, null);
     }
-
-
-
-
-
-
-
-
-
-
 }
